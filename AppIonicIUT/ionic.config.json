@@ -1,0 +1,7 @@
+{
+  "name": "AppIonicIUT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
