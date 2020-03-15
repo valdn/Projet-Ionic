@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>accueil</ion-title>
+    <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div id="container">
+    <ion-item>
+      <ion-label>Nom :</ion-label>
+      <ion-input type="string" [(ngModel)]="infoConnex.nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mot de passe :</ion-label>
+      <ion-input type="string" [(ngModel)]="infoConnex.mdp"></ion-input>
+    </ion-item>
+    <ion-footer>
+      <ion-button round (click)="allerArchives()">Archives</ion-button>
+      <ion-button round (click)="allerGaleries()">Galeries</ion-button>
+      <ion-button round (click)="allerDates()">Dates Importantes</ion-button>
+      <ion-button round (click)="allerInfos()">Informations</ion-button>
+    </ion-footer>
+  </div>
 </ion-content>

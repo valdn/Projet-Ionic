@@ -7,6 +7,22 @@ const routes: Routes = [
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'archives',
+    loadChildren: () => import('./archives/archives.module').then( m => m.ArchivesPageModule)
+  },
+  {
+    path: 'galeries',
+    loadChildren: () => import('./galeries/galeries.module').then( m => m.GaleriesPageModule)
+  },
+  {
+    path: 'dates',
+    loadChildren: () => import('./dates/dates.module').then( m => m.DatesPageModule)
+  },
+  {
+    path: 'informations',
+    loadChildren: () => import('./informations/informations.module').then( m => m.InformationsPageModule)
+  },
 
 ];
 

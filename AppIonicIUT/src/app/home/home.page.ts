@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -13,24 +14,21 @@ export class HomePage {
 
   public infoConnex = {
     nom: "",
-    mdp: ""
+    mdp: "",
+    checked: false,
   };
   public resultats: any;
-  public checked: boolean;
+  
 
-  constructor(private http: HttpClient, public toastController: ToastController, private storage: Storage) {
+  constructor(public navCtrl: NavController, private http: HttpClient, public toastController: ToastController, private storage: Storage) {
     this.getInitValue()
   }
 
   getInitValue(){
-    this.storage.get('checked').then((val) => {
-      this.checked = val
-    });
-    this.storage.get('nom').then((val) => {
-      this.infoConnex.nom = val
-    });
-    this.storage.get('mdp').then((val) => {
-      this.infoConnex.mdp = val
+    this.storage.get('infoConnex').then((val) => {
+      this.infoConnex.nom = val.nom
+      this.infoConnex.mdp = val.mdp
+      this.infoConnex.checked = val.checked
     });
   }
 
@@ -40,16 +38,16 @@ export class HomePage {
     this.resultats = data;
     if (this.resultats.resultat){
       this.resultMsg()
-      if (this.checked){
-        this.storage.set('nom', this.infoConnex.nom);
-        this.storage.set('mdp', this.infoConnex.mdp);
-        this.storage.set('checked', this.checked);
+      this.storage.set('tempConnex' , this.infoConnex)
+      if (this.infoConnex.checked){
+        this.storage.set('infoConnex', this.infoConnex);
       } 
       else {
-        this.storage.set('nom', "");
-        this.storage.set('mdp', "");
-        this.storage.set('checked', false);
+        this.infoConnex.nom = ""
+        this.infoConnex.mdp = ""
+        this.storage.set('infoConnex', this.infoConnex);
       }
+      this.navCtrl.navigateForward('/accueil')
     }
     else this.errorMsg()
     });

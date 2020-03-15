@@ -7,12 +7,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
     <ion-item>
       <ion-label>Nom :</ion-label>
@@ -23,7 +17,7 @@
       <ion-input type="password" [(ngModel)]="infoConnex.mdp"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-checkbox [(ngModel)]="checked"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="infoConnex.checked"></ion-checkbox>
       <ion-label>Se souvenir de moi ?</ion-label>
     </ion-item>
     <ion-footer>
