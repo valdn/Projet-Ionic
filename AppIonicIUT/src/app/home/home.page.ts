@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
+import { ApiService } from '../api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class HomePage {
   public resultats: any;
   
 
-  constructor(public navCtrl: NavController, private http: HttpClient, public toastController: ToastController, private storage: Storage) {
+  constructor(public navCtrl: NavController,public apiService: ApiService, public toastController: ToastController, private storage: Storage) {
     this.getInitValue()
   }
 
@@ -32,24 +33,30 @@ export class HomePage {
     });
   }
 
-  verifValue(){
+  async verifValue(): Promise<void>{
+    await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp).subscribe((result) => {
+      this.resultats = result
+      if (this.resultats.resultat){
+        this.resultMsg()
+        this.storage.set('tempConnex' , this.infoConnex)
+        if (this.infoConnex.checked){
+          this.storage.set('infoConnex', this.infoConnex);
+        } 
+        else {
+          this.infoConnex.nom = ""
+          this.infoConnex.mdp = ""
+          this.storage.set('infoConnex', this.infoConnex);
+        }
+        this.navCtrl.navigateForward('/accueil')
+      }
+      else this.errorMsg()
+    });
+  }
+
+  getValue(){
     this.http.get('http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?connexion&login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp)
     .subscribe((data) => {
-    this.resultats = data;
-    if (this.resultats.resultat){
-      this.resultMsg()
-      this.storage.set('tempConnex' , this.infoConnex)
-      if (this.infoConnex.checked){
-        this.storage.set('infoConnex', this.infoConnex);
-      } 
-      else {
-        this.infoConnex.nom = ""
-        this.infoConnex.mdp = ""
-        this.storage.set('infoConnex', this.infoConnex);
-      }
-      this.navCtrl.navigateForward('/accueil')
-    }
-    else this.errorMsg()
+      this.resultats = data;
     });
   }
 
