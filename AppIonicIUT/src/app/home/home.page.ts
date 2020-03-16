@@ -3,7 +3,6 @@ import { ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
 import { ApiService } from '../api.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -50,13 +49,6 @@ export class HomePage {
         this.navCtrl.navigateForward('/accueil')
       }
       else this.errorMsg()
-    });
-  }
-
-  getValue(){
-    this.http.get('http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?connexion&login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp)
-    .subscribe((data) => {
-      this.resultats = data;
     });
   }
 
