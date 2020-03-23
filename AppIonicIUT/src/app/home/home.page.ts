@@ -45,7 +45,7 @@ export class HomePage {
           this.infoConnex.mdp = ""
           this.storage.set('infoConnex', this.infoConnex);
         }
-        this.navCtrl.navigateForward('/accueil')
+        this.navCtrl.navigateForward('/accueil/articles')
       }
       else this.errorMsg()
   }

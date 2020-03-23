@@ -1,16 +1,37 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Accueil</ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
 <ion-content>
   <div id="container">
-    <ion-footer>
-      <ion-button round (click)="allerArticles()">Articles</ion-button>
-      <ion-button round (click)="allerGaleries()">Galeries</ion-button>
-      <ion-button round (click)="allerDates()">Dates Importantes</ion-button>
-      <ion-button round (click)="allerInfos()">Informations</ion-button>
-    </ion-footer>
+
   </div>
+
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="articles">
+      <ion-icon name="albums"></ion-icon>
+        <ion-label>Articles</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="galeries">
+      <ion-icon name="images"></ion-icon>
+      <ion-label>Galerie</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="dates">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Map</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="informations">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+
 </ion-content>
