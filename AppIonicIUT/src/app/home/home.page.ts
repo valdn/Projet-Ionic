@@ -32,7 +32,7 @@ export class HomePage {
     });
   }
 
-  async verifValue(): Promise<void>{
+  async verifValue(){
     this.resultats = await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp)
       if (this.resultats.resultat){
         this.resultMsg()
