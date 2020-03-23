@@ -7,13 +7,21 @@ import { IonicModule } from '@ionic/angular';
 import { AccueilPageRoutingModule } from './accueil-routing.module';
 
 import { AccueilPage } from './accueil.page';
+import { ArticlesPageModule } from '../articles/articles.module';
+import { InformationsPageModule } from '../informations/informations.module';
+import { DatesPageModule } from '../dates/dates.module';
+import { GaleriesPageModule } from '../galeries/galeries.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccueilPageRoutingModule
+    AccueilPageRoutingModule,
+    ArticlesPageModule,
+    InformationsPageModule,
+    DatesPageModule,
+    GaleriesPageModule
   ],
   declarations: [AccueilPage]
 })

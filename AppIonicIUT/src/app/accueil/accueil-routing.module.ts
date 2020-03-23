@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AccueilPage } from './accueil.page';
+import { ArticlesPage } from '../articles/articles.page';
+import { InformationsPage } from '../informations/informations.page';
+import { GaleriesPage } from '../galeries/galeries.page';
+import { DatesPage } from '../dates/dates.page';
 
 const routes: Routes = [
   {
@@ -13,7 +17,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../articles/articles.module#ArticlesPageModule'
+            component: ArticlesPage,
+            loadChildren: () => import('../articles/articles.module').then(m => m.ArticlesPageModule)
           }
         ]
       },
@@ -22,7 +27,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../informations/informations.module#InformationsPageModule'
+            component: InformationsPage,
+            loadChildren: () => import('../informations/informations.module').then(m => m.InformationsPageModule)
           }
         ]
       },
@@ -31,7 +37,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../galeries/galeries.module#GaleriesPageModule'
+            component: GaleriesPage,
+            loadChildren: () => import('../galeries/galeries.module').then(m => m.GaleriesPageModule)
           }
         ]
       },
@@ -40,7 +47,8 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../dates/dates.module#DatesPageModule'
+            component: DatesPage,
+            loadChildren: () => import('../dates/dates.module').then(m => m.DatesPageModule)
           }
         ]
       },

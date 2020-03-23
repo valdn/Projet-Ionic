@@ -18,19 +18,19 @@ export class AccueilPage implements OnInit {
   }
 
   allerArticles(){
-    this.navCtrl.navigateForward('/articles')
+    this.navCtrl.navigateForward('/accueil/articles')
   }
 
   allerGaleries(){
-    this.navCtrl.navigateForward('/galeries')
+    this.navCtrl.navigateForward('/accueil/galeries')
   }
 
   allerDates(){
-    this.navCtrl.navigateForward('/dates')
+    this.navCtrl.navigateForward('/accueil/dates')
   } 
 
   allerInfos(){
-    this.navCtrl.navigateForward('/informations')
+    this.navCtrl.navigateForward('/accueil/informations')
   }
 
   ngOnInit() {
