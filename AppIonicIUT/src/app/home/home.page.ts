@@ -24,11 +24,13 @@ export class HomePage {
     this.getInitValue()
   }
 
-  getInitValue(){
-    this.storage.get('infoConnex').then((val) => {
-      this.infoConnex.nom = val.nom
-      this.infoConnex.mdp = val.mdp
-      this.infoConnex.checked = val.checked
+  async getInitValue(){
+    await this.storage.get('infoConnex').then((val) => {
+      if (val != null){
+        this.infoConnex.nom = val.nom
+        this.infoConnex.mdp = val.mdp
+        this.infoConnex.checked = val.checked
+      }
     });
   }
 

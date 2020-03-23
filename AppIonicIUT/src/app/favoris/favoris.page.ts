@@ -18,13 +18,13 @@ export class FavorisPage implements OnInit {
 
   async getInitValue(){
     if(await this.apiService.verifConnex()){
-      const articles = await this.apiService.getArticles()
+      this.articles = await this.apiService.getArticles()
       const nom = await this.apiService.getNom()
       this.stored = await this.storage.get('fav_' + nom)
-      if(this.stored!=null && this.stored.length > 0){
-        articles.forEach(element => {
-          if (articles.indexOf(element.id)!=-1){
-            this.articles.push(element)
+      if(this.stored!=null){
+        this.articles.forEach(element => {
+          if (this.stored.indexOf(element.id)==-1){
+            this.articles = this.articles.filter(e => e !== element)
           }
         });
       }
@@ -33,5 +33,4 @@ export class FavorisPage implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -17,26 +17,6 @@ export class AccueilPage implements OnInit {
     await this.apiService.verifConnex()
   }
 
-  allerArticles(){
-    this.navCtrl.navigateForward('/accueil/articles')
-  }
-
-  allerGaleries(){
-    this.navCtrl.navigateForward('/accueil/galeries')
-  }
-
-  allerDates(){
-    this.navCtrl.navigateForward('/accueil/dates')
-  } 
-
-  allerInfos(){
-    this.navCtrl.navigateForward('/accueil/informations')
-  }
-
-  allerFavorites(){
-    this.navCtrl.navigateForward('/accueil/favoris')
-  }
-
   ngOnInit() {
   }
 }
