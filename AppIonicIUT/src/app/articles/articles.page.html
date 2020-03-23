@@ -13,14 +13,15 @@
     </ion-card-header>
     <ion-list *ngFor="let photo of data.photos" no-lines>
       <ion-item>
-        <ion-label>{{photo.image}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{photo.legende}}</ion-label>
+        <ion-thumbnail slot="start">
+          <img src="http://www.sebastien-thon.fr/cours/M4104Cip/projet/images/{{photo.image}}">
+        </ion-thumbnail>
+        <p>{{photo.legende}}</p>
       </ion-item>
     </ion-list>
     <ion-card-content>
       <ion-label>{{data.texte}}</ion-label>
     </ion-card-content>
+    <ion-checkbox checked="{{data.checked}}" (ionChange)="onChange(data.id, $event.target.checked)"></ion-checkbox>
   </ion-card>
 </ion-content>

@@ -23,21 +23,11 @@ export class ApiService {
   }
 
   getNom(){
-    if (this.infoConnex.nom==""){
-      this.navCtrl.navigateForward('/home')
-    }
-    else{
-      return this.infoConnex.nom
-    }
+    return this.infoConnex.nom
   }
 
   getMdp(){
-    if (this.infoConnex.mdp==""){
-      this.navCtrl.navigateForward('/home')
-    }
-    else{
-      return this.infoConnex.mdp
-    }
+    return this.infoConnex.mdp
   }
 
   async verifConnex(){
@@ -54,7 +44,7 @@ export class ApiService {
     this.infoConnex.mdp = mdp
   }
 
-  async getArchives(){
+  async getArticles(){
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
     res.articles.forEach(art => {
@@ -66,8 +56,8 @@ export class ApiService {
   async getGaleries(){
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
-    res.galeries.forEach(art => {
-      art.date = new Date(art.date).toLocaleString('en-GB', { timeZone: 'UTC' });
+    res.galeries.forEach(glr => {
+      glr.date = new Date(glr.date).toLocaleString('en-GB', { timeZone: 'UTC' });
     });
     return res.galeries
   }
@@ -75,8 +65,8 @@ export class ApiService {
   async getDates(){
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
-    res.dates.forEach(art => {
-      art.date = new Date(art.date).toLocaleString('en-GB', { timeZone: 'UTC' });
+    res.dates.forEach(dat => {
+      dat.date = new Date(dat.date).toLocaleString('en-GB', { timeZone: 'UTC' });
     });
     return res.dates
   }
