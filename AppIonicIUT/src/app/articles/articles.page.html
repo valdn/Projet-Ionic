@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Articles</ion-title>
+    <ion-item>
+      <ion-title>Articles</ion-title>
+      <ion-searchbar showCancelButton="focus" (ionInput)="filterArchives($event.target.value)"></ion-searchbar>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 

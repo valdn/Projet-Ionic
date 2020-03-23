@@ -12,33 +12,38 @@ export class ArticlesPage implements OnInit {
   public articles: any;
   public nom: any;
   public stored: any;
+  public articlestot: any;
 
-  constructor(public apiService: ApiService, private storage: Storage) { 
-    this.getInitValue()
+  constructor( public apiService: ApiService, private storage: Storage) { 
+  }
+
+  async ionViewWillEnter(){
+    if (await this.apiService.verifConnex()){
+      await this.getInitValue()
+    }
   }
 
   async getInitValue(){
-    if(await this.apiService.verifConnex()){
-      this.articles = await this.apiService.getArticles()
-      this.nom = await this.apiService.getNom()
-      this.stored = await this.storage.get('fav_' + this.nom)
+    this.articlestot = await this.apiService.getArticles()
+    this.articles = this.articlestot
+    this.nom = await this.apiService.getNom()
+    this.stored = await this.storage.get('fav_' + this.nom)
 
-      if(this.stored==null){
-        this.storage.set('fav_' + this.nom, [])
-        this.articles.forEach(element => {
+    if(this.stored==null){
+      this.storage.set('fav_' + this.nom, [])
+      this.articles.forEach(element => {
+        element.checked = false;
+      });
+    }
+    else{
+      this.articles.forEach(element => {
+        if (this.stored.indexOf(element.id) !== -1){
+          element.checked = true;
+        }
+        else {
           element.checked = false;
-        });
-      }
-      else{
-        this.articles.forEach(element => {
-          if (this.stored.indexOf(element.id) !== -1){
-            element.checked = true;
-          }
-          else {
-            element.checked = false;
-          }
-        });
-      }
+        }
+      });
     }
   }
 
@@ -51,6 +56,22 @@ export class ArticlesPage implements OnInit {
       else{
         this.stored = this.stored.filter(e => e !== id)
         this.storage.set('fav_' + this.nom, this.stored)
+      }
+    }
+  }
+
+  async filterArchives(recherche){
+    console.log(recherche)
+    if (recherche==""){
+       this.getInitValue()
+    } else {
+      this.articles = this.articlestot
+      if(this.stored!=null){
+        this.articles.forEach(element => {
+          if (element.titre.search(recherche)==-1 && element.texte.search(recherche)==-1){
+            this.articles = this.articles.filter(e => e !== element)
+          }
+        });
       }
     }
   }

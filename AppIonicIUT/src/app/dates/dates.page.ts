@@ -11,13 +11,16 @@ export class DatesPage implements OnInit {
   public dates: any;
 
   constructor(public apiService: ApiService) { 
-    this.getInitValue()
+  }
+
+  async ionViewWillEnter(){
+    if (await this.apiService.verifConnex()){
+      await this.getInitValue()
+    }
   }
 
   async getInitValue(){
-    if(await this.apiService.verifConnex()){
-      this.dates = await this.apiService.getDates()
-    }
+    this.dates = await this.apiService.getDates()
   }
 
   ngOnInit() {
