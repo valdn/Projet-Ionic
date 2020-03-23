@@ -55,15 +55,20 @@ export class ApiService {
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
     console.log(res.articles)
-    //return res
+    return res.articles
   }
 
   async getGaleries(){
-    
+    let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
+    let res = await this.getData(link)
+    console.log(res.galeries)
+    return res.galeries
   }
 
   async getDates(){
-    
+    let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
+    let res = await this.getData(link)
+    console.log(res.dates)
+    return res.dates
   }
-
 }

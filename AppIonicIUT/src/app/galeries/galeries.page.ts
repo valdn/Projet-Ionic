@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-galeries',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GaleriesPage implements OnInit {
 
-  constructor() { }
+  public galeries: any;
+
+  constructor(public apiService: ApiService) { 
+    this.getInitValue()
+  }
+
+  async getInitValue(){
+    await this.apiService.verifConnex()
+    this.galeries = await this.apiService.getGaleries()
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-dates',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatesPage implements OnInit {
 
-  constructor() { }
+  public dates: any;
+
+  constructor(public apiService: ApiService) { 
+    this.getInitValue()
+  }
+
+  async getInitValue(){
+    await this.apiService.verifConnex()
+    this.dates = await this.apiService.getDates()
+  }
 
   ngOnInit() {
   }
