@@ -17,8 +17,8 @@ export class AccueilPage implements OnInit {
     await this.apiService.verifConnex()
   }
 
-  allerArchives(){
-    this.navCtrl.navigateForward('/archives')
+  allerArticles(){
+    this.navCtrl.navigateForward('/articles')
   }
 
   allerGaleries(){
