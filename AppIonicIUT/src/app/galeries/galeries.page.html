@@ -5,5 +5,17 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list *ngFor="let data of galeries" no-lines>
+    <ion-item>
+      <ion-label>{{data.titre}}</ion-label>
+      <ion-label>{{data.date}}</ion-label>
+      <ion-label>{{data.texte}}</ion-label>
+      <ion-list *ngFor="let photo of data.photos" no-lines>
+        <ion-item>
+          <ion-label>{{photo.image}}</ion-label>
+          <ion-label>{{photo.legende}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
 </ion-content>

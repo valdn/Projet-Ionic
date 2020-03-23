@@ -15,8 +15,9 @@ export class ArticlesPage implements OnInit {
   }
 
   async getInitValue(){
-    await this.apiService.verifConnex()
-    this.articles = await this.apiService.getArchives()
+    if(await this.apiService.verifConnex()){
+      this.articles = await this.apiService.getArchives()
+    }
   }
 
   ngOnInit() {
