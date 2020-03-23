@@ -15,8 +15,9 @@ export class GaleriesPage implements OnInit {
   }
 
   async getInitValue(){
-    await this.apiService.verifConnex()
-    this.galeries = await this.apiService.getGaleries()
+    if(await this.apiService.verifConnex()){
+      this.galeries = await this.apiService.getGaleries()
+    }
   }
 
   ngOnInit() {

@@ -15,8 +15,9 @@ export class DatesPage implements OnInit {
   }
 
   async getInitValue(){
-    await this.apiService.verifConnex()
-    this.dates = await this.apiService.getDates()
+    if(await this.apiService.verifConnex()){
+      this.dates = await this.apiService.getDates()
+    }
   }
 
   ngOnInit() {
