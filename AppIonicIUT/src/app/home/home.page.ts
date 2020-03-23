@@ -33,11 +33,9 @@ export class HomePage {
   }
 
   async verifValue(): Promise<void>{
-    await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp).subscribe((result) => {
-      this.resultats = result
+    this.resultats = await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp)
       if (this.resultats.resultat){
         this.resultMsg()
-        this.storage.set('tempConnex' , this.infoConnex)
         if (this.infoConnex.checked){
           this.storage.set('infoConnex', this.infoConnex);
         } 
@@ -49,7 +47,6 @@ export class HomePage {
         this.navCtrl.navigateForward('/accueil')
       }
       else this.errorMsg()
-    });
   }
 
   async resultMsg() {

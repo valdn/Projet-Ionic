@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
 import { NavController } from '@ionic/angular';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-accueil',
@@ -14,15 +14,13 @@ export class AccueilPage implements OnInit {
     mdp: ""
   };
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(public navCtrl: NavController, public apiService: ApiService) {
     this.getInitValue()
   }
 
-  getInitValue(){
-    this.storage.get('tempConnex').then((val) => {
-      this.infoConnex.nom = val.nom
-      this.infoConnex.mdp = val.mdp
-    });
+  async getInitValue(){
+    this.infoConnex.nom = await this.apiService.getNom()
+    this.infoConnex.mdp = await this.apiService.getMdp()
   }
 
   allerArchives(){
