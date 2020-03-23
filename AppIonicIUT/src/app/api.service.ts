@@ -42,6 +42,7 @@ export class ApiService {
 
   async verifConnex(){
     if (this.infoConnex.mdp=="" || this.infoConnex.mdp==""){
+      await this.navCtrl.pop()
       await this.navCtrl.navigateRoot('/home')
       return false;
     }
