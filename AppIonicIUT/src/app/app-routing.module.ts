@@ -3,13 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},  {
+  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  {
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
-  },
-  {
-    path: 'archives',
-    loadChildren: () => import('./archives/archives.module').then( m => m.ArchivesPageModule)
   },
   {
     path: 'galeries',
@@ -22,6 +19,10 @@ const routes: Routes = [
   {
     path: 'informations',
     loadChildren: () => import('./informations/informations.module').then( m => m.InformationsPageModule)
+  },
+  {
+    path: 'articles',
+    loadChildren: () => import('./articles/articles.module').then( m => m.ArticlesPageModule)
   },
 
 ];

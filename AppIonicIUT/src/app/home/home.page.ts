@@ -36,6 +36,7 @@ export class HomePage {
     this.resultats = await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp)
       if (this.resultats.resultat){
         this.resultMsg()
+        await this.apiService.setInfoConnex(this.infoConnex.nom, this.infoConnex.mdp)
         if (this.infoConnex.checked){
           this.storage.set('infoConnex', this.infoConnex);
         } 

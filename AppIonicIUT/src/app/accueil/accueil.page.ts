@@ -9,18 +9,12 @@ import { ApiService } from '../api.service';
 })
 export class AccueilPage implements OnInit {
 
-  public infoConnex = {
-    nom: "",
-    mdp: ""
-  };
-
   constructor(public navCtrl: NavController, public apiService: ApiService) {
     this.getInitValue()
   }
 
   async getInitValue(){
-    this.infoConnex.nom = await this.apiService.getNom()
-    this.infoConnex.mdp = await this.apiService.getMdp()
+    await this.apiService.verifConnex()
   }
 
   allerArchives(){

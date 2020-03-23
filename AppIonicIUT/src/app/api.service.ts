@@ -13,8 +13,6 @@ export class ApiService {
   async getInfoConnex(nom, mdp){
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?connexion&login='+ nom +'&mdp=' + mdp
     let res = await this.getData(link)
-    this.infoConnex.nom = nom
-    this.infoConnex.mdp = mdp
     return res
   }
 
@@ -41,4 +39,31 @@ export class ApiService {
       return this.infoConnex.mdp
     }
   }
+
+  async verifConnex(){
+    if (this.infoConnex.mdp=="" || this.infoConnex.mdp==""){
+      this.navCtrl.navigateForward('/home')
+    }
+  }
+
+  async setInfoConnex(nom, mdp){
+    this.infoConnex.nom = nom
+    this.infoConnex.mdp = mdp
+  }
+
+  async getArchives(){
+    let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
+    let res = await this.getData(link)
+    console.log(res.articles)
+    //return res
+  }
+
+  async getGaleries(){
+    
+  }
+
+  async getDates(){
+    
+  }
+
 }
