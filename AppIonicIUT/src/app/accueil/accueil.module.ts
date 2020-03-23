@@ -11,6 +11,7 @@ import { ArticlesPageModule } from '../articles/articles.module';
 import { InformationsPageModule } from '../informations/informations.module';
 import { DatesPageModule } from '../dates/dates.module';
 import { GaleriesPageModule } from '../galeries/galeries.module';
+import { FavorisPageModule } from '../favoris/favoris.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { GaleriesPageModule } from '../galeries/galeries.module';
     ArticlesPageModule,
     InformationsPageModule,
     DatesPageModule,
-    GaleriesPageModule
+    GaleriesPageModule,
+    FavorisPageModule
   ],
   declarations: [AccueilPage]
 })

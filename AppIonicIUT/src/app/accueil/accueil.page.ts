@@ -33,6 +33,10 @@ export class AccueilPage implements OnInit {
     this.navCtrl.navigateForward('/accueil/informations')
   }
 
+  allerFavorites(){
+    this.navCtrl.navigateForward('/accueil/favoris')
+  }
+
   ngOnInit() {
   }
 }

@@ -6,6 +6,7 @@ import { ArticlesPage } from '../articles/articles.page';
 import { InformationsPage } from '../informations/informations.page';
 import { GaleriesPage } from '../galeries/galeries.page';
 import { DatesPage } from '../dates/dates.page';
+import { FavorisPage } from '../favoris/favoris.page';
 
 const routes: Routes = [
   {
@@ -49,6 +50,16 @@ const routes: Routes = [
             path: '',
             component: DatesPage,
             loadChildren: () => import('../dates/dates.module').then(m => m.DatesPageModule)
+          }
+        ]
+      },
+      {
+        path: 'favoris',
+        children: [
+          {
+            path: '',
+            component: FavorisPage,
+            loadChildren: () => import('../favoris/favoris.module').then(m => m.FavorisPageModule)
           }
         ]
       },
