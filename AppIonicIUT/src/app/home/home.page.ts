@@ -24,7 +24,7 @@ export class HomePage {
     this.getInitValue()
   }
 
-  async getInitValue(){
+  async getInitValue(){ //Valeur d'initialisation
     await this.storage.get('infoConnex').then((val) => {
       if (val != null){
         this.infoConnex.nom = val.nom
@@ -34,7 +34,7 @@ export class HomePage {
     });
   }
 
-  async verifValue(){
+  async verifValue(){ //permet de vérifier les valeurs du nom et mdp à chaque appuie sur le bouton valider
     this.resultats = await this.apiService.getInfoConnex(this.infoConnex.nom, this.infoConnex.mdp)
       if (this.resultats.resultat){
         this.resultMsg()
@@ -52,7 +52,7 @@ export class HomePage {
       else this.errorMsg()
   }
 
-  async chooseNavigation(){
+  async chooseNavigation(){ //Permet de rediriger l'utilisateur vers le tutoriel pour la première fois puis vers l'accueil
     await this.storage.get('getTuto').then((val) => {
       if (val != null){
         this.navCtrl.navigateForward('/accueil/articles')
@@ -64,7 +64,7 @@ export class HomePage {
     });
   }
 
-  async resultMsg() {
+  async resultMsg() { //Toast de bonne connexion
     const toast = await this.toastController.create({
       message: "Vous êtes connecté",
       duration: 2000,
@@ -74,7 +74,7 @@ export class HomePage {
     toast.present();
   }
 
-  async errorMsg() {
+  async errorMsg() { //Toat de mauvaise connexion
     const toast = await this.toastController.create({
       message: "Erreur, mauvais nom/mot de passe",
       duration: 2000,

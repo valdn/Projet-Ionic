@@ -13,17 +13,17 @@ export class DatesPage implements OnInit {
   constructor(public apiService: ApiService) { 
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter(){ //A chaque chargement de page
     if (await this.apiService.verifConnex()){
       await this.getInitValue()
     }
   }
 
-  async getInitValue(){
+  async getInitValue(){ //Récupère les dates de l'API
     this.dates = await this.apiService.getDates()
   }
 
-  doRefresh(event) {
+  doRefresh(event) { //Refresh
     this.getInitValue()
 
     setTimeout(() => {

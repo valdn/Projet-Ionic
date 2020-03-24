@@ -15,13 +15,13 @@ export class FavorisPage implements OnInit {
   constructor(public apiService: ApiService, private storage: Storage) {
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter(){ //A chaque chargement de page
     if (await this.apiService.verifConnex()){
       await this.getInitValue()
     }
   }
 
-  async getInitValue(){
+  async getInitValue(){ //Récupère les archives likés
     this.articles = await this.apiService.getChipDesign(await this.apiService.getArticles())
     const nom = await this.apiService.getNom()
     this.stored = await this.storage.get('fav_' + nom)

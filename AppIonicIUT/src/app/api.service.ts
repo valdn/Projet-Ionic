@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(public navCtrl: NavController) { }
 
-  async getInfoConnex(nom, mdp){
+  async getInfoConnex(nom, mdp){ //Regarde si le nom et le mdp existe bien dans l'API
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?connexion&login='+ nom +'&mdp=' + mdp
     let res = await this.getData(link)
     return res
@@ -22,15 +22,15 @@ export class ApiService {
     return data;
   }
 
-  getNom(){
+  getNom(){ //Récupère le nom
     return this.infoConnex.nom
   }
 
-  getMdp(){
+  getMdp(){ //Récupère le mdp
     return this.infoConnex.mdp
   }
 
-  async verifConnex(){
+  async verifConnex(){ //Vérification que la connexion est bien effectué avant d'accéder à une page
     if (this.infoConnex.mdp=="" || this.infoConnex.mdp==""){
       await this.navCtrl.pop()
       await this.navCtrl.navigateRoot('/home')
@@ -39,12 +39,12 @@ export class ApiService {
     else return true;
   }
 
-  setInfoConnex(nom, mdp){
+  setInfoConnex(nom, mdp){ //Permet d'enregistrer les infos de connexion dans cette page
     this.infoConnex.nom = nom
     this.infoConnex.mdp = mdp
   }
 
-  async getArticles(){
+  async getArticles(){ //Récupère les articles de l'API
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
     res.articles.forEach(art => {
@@ -53,7 +53,7 @@ export class ApiService {
     return res.articles
   }
 
-  async getGaleries(){
+  async getGaleries(){//Récupère les galeries de l'API
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
     res.galeries.forEach(glr => {
@@ -62,7 +62,7 @@ export class ApiService {
     return res.galeries
   }
 
-  async getDates(){
+  async getDates(){ //Récupère les dates importantes de l'API
     let link = 'http://www.sebastien-thon.fr/cours/M4104Cip/projet/index.php?login='+ this.infoConnex.nom +'&mdp=' + this.infoConnex.mdp
     let res = await this.getData(link)
     res.dates.forEach(dat => {
@@ -71,7 +71,7 @@ export class ApiService {
     return res.dates
   }
 
-  getChipDesign(data){
+  getChipDesign(data){ //Permet de récupérer les designs des chips affichés dans galeries, articles et favoris
     data.forEach(res => {
       switch(res.categorie){
         case "Information":

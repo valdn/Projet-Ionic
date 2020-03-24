@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
 })
 export class TutorielPage implements OnInit {
 
-  slideOpts = {
+  slideOpts = { //Animation entre les slides
     grabCursor: true,
     cubeEffect: {
       shadow: true,
@@ -169,7 +169,7 @@ export class TutorielPage implements OnInit {
     this.apiService.verifConnex()
   }
 
-  goToApp(){
+  goToApp(){ //Redirection
     this.navCtrl.navigateForward('/accueil/articles')
   }
 

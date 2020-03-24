@@ -13,17 +13,17 @@ export class GaleriesPage implements OnInit {
   constructor(public apiService: ApiService) { 
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter(){ //A chaque chargement de page
     if (await this.apiService.verifConnex()){
       await this.getInitValue()
     }
   }
 
-  async getInitValue(){
+  async getInitValue(){ //Valeur de base
     this.galeries = await this.apiService.getChipDesign(await this.apiService.getGaleries())
   }
 
-  doRefresh(event) {
+  doRefresh(event) { //Refresh
     this.getInitValue()
 
     setTimeout(() => {

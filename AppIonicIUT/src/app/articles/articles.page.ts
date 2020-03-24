@@ -17,20 +17,13 @@ export class ArticlesPage implements OnInit {
   constructor( public apiService: ApiService, private storage: Storage) { 
   }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter(){ //A chaque chargement de page
     if (await this.apiService.verifConnex()){
       await this.getInitValue()
     }
   }
 
-  async refresh(event){
-    setTimeout(() => {
-      this.getInitValue();
-      event.target.complete();
-    }, 2000);
-  }
-
-  async getInitValue(){
+  async getInitValue(){ //Valeur de base de la page
     this.articlestot = await this.apiService.getChipDesign(await this.apiService.getArticles())
     this.articles = this.articlestot
     this.nom = await this.apiService.getNom()
@@ -54,7 +47,7 @@ export class ArticlesPage implements OnInit {
     }
   }
 
-  onChange(id, isChecked){
+  onChange(id, isChecked){ //A chaque checkbox coché ou décoché
     if(this.stored!=null){
       if (isChecked){
         this.stored.push(id)
@@ -67,7 +60,7 @@ export class ArticlesPage implements OnInit {
     }
   }
 
-  async filterArchives(recherche){
+  async filterArchives(recherche){ //Permet de filtrer les articles voulus grâce à la recherche
     if (recherche==""){
        this.getInitValue()
     } else {
@@ -82,7 +75,7 @@ export class ArticlesPage implements OnInit {
     }
   }
 
-  doRefresh(event) {
+  doRefresh(event) { //Refresh
     this.getInitValue()
 
     setTimeout(() => {

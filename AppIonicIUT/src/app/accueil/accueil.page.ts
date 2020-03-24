@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class AccueilPage implements OnInit {
 
-  constructor(public navCtrl: NavController, public apiService: ApiService) {
+  constructor(public apiService: ApiService) {
     this.getInitValue()
   }
 
