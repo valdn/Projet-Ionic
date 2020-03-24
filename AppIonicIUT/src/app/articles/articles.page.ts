@@ -83,6 +83,14 @@ export class ArticlesPage implements OnInit {
     }
   }
 
+  doRefresh(event) {
+    this.getInitValue()
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   ngOnInit() {
   }
 }

@@ -47,7 +47,7 @@ export class HomePage {
           this.infoConnex.mdp = ""
           this.storage.set('infoConnex', this.infoConnex);
         }
-        this.navCtrl.navigateForward('/accueil/articles')
+        this.navCtrl.navigateForward('/tutoriel')
       }
       else this.errorMsg()
   }
