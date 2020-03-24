@@ -47,9 +47,21 @@ export class HomePage {
           this.infoConnex.mdp = ""
           this.storage.set('infoConnex', this.infoConnex);
         }
-        this.navCtrl.navigateForward('/tutoriel')
+        this.chooseNavigation()
       }
       else this.errorMsg()
+  }
+
+  async chooseNavigation(){
+    await this.storage.get('getTuto').then((val) => {
+      if (val != null){
+        this.navCtrl.navigateForward('/accueil/articles')
+      }
+      else{
+        this.navCtrl.navigateForward('/tutoriel')
+        this.storage.set('getTuto', 1);
+      }
+    });
   }
 
   async resultMsg() {
