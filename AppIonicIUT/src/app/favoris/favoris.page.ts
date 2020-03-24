@@ -22,15 +22,16 @@ export class FavorisPage implements OnInit {
   }
 
   async getInitValue(){ //Récupère les archives likés
-    this.articles = await this.apiService.getChipDesign(await this.apiService.getArticles())
+    let articles = await this.apiService.getChipDesign(await this.apiService.getArticles())
     const nom = await this.apiService.getNom()
     this.stored = await this.storage.get('fav_' + nom)
     if(this.stored!=null){
-      this.articles.forEach(element => {
+      articles.forEach(element => {
         if (this.stored.indexOf(element.id)==-1){
-          this.articles = this.articles.filter(e => e !== element)
+          articles = articles.filter(e => e !== element)
         }
       });
+      this.articles = articles
     }
   }
 
