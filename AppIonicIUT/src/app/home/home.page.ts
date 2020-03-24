@@ -66,7 +66,7 @@ export class HomePage {
 
   async resultMsg() {
     const toast = await this.toastController.create({
-      message: "You are connected",
+      message: "Vous êtes connecté",
       duration: 2000,
       position: 'top',
       color: 'primary',
@@ -76,7 +76,7 @@ export class HomePage {
 
   async errorMsg() {
     const toast = await this.toastController.create({
-      message: "Error, wrong name/password",
+      message: "Erreur, mauvais nom/mot de passe",
       duration: 2000,
       position: 'top',
       color: 'danger',
