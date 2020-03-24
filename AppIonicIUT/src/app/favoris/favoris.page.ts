@@ -22,7 +22,7 @@ export class FavorisPage implements OnInit {
   }
 
   async getInitValue(){
-    this.articles = await this.apiService.getArticles()
+    this.articles = await this.apiService.getChipDesign(await this.apiService.getArticles())
     const nom = await this.apiService.getNom()
     this.stored = await this.storage.get('fav_' + nom)
     if(this.stored!=null){

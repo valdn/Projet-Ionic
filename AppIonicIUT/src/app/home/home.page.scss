@@ -14,16 +14,24 @@
 }
 
 #container p {
+  
   font-size: 16px;
   line-height: 22px;
 
   color: #8c8c8c;
+}
 
-  margin: 0;
+ion-checkbox{
+  position: relative;
+  margin-top: 10px;
 }
 
 #container a {
   text-decoration: none;
+}
+
+ion-item{
+  margin-top: 10px;
 }
 
 ion-content ion-toolbar {

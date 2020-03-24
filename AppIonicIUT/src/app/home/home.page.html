@@ -1,25 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Ecole Petit Prince
+      École Petit Prince
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="container">
+    <ion-label>Nom :</ion-label>
     <ion-item>
-      <ion-label>Nom :</ion-label>
       <ion-input type="string" [(ngModel)]="infoConnex.nom"></ion-input>
     </ion-item>
+    <br/>
+    <ion-label>Mot de passe :</ion-label>
     <ion-item>
-      <ion-label>Mot de passe :</ion-label>
       <ion-input type="password" [(ngModel)]="infoConnex.mdp"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-checkbox slot="start" [(ngModel)]="infoConnex.checked"></ion-checkbox>
-      <ion-label>Se souvenir de moi ?</ion-label>
-    </ion-item>
+    <p><ion-checkbox [(ngModel)]="infoConnex.checked"></ion-checkbox>
+      Se souvenir de moi ?</p>
     <ion-footer>
       <ion-button round (click)="verifValue()">Valider</ion-button>
     </ion-footer>  

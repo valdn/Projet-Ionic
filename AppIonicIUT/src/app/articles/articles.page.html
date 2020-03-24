@@ -13,8 +13,10 @@
   </ion-refresher>
   <ion-card *ngFor="let data of articles" no-lines>
     <ion-card-header>
-      <ion-card-title>{{data.titre}}</ion-card-title>
-      <ion-card-subtitle>{{data.categorie}}</ion-card-subtitle>
+      <ion-card-title>
+        <ion-checkbox color="danger" checked="{{data.checked}}" (ionChange)="onChange(data.id, $event.target.checked)"></ion-checkbox>
+        {{data.titre}}
+      </ion-card-title>
       <ion-card-subtitle>{{data.date}}</ion-card-subtitle>
     </ion-card-header>
     <ion-list *ngFor="let photo of data.photos" no-lines>
@@ -28,6 +30,15 @@
     <ion-card-content>
       <ion-label>{{data.texte}}</ion-label>
     </ion-card-content>
-    <ion-checkbox checked="{{data.checked}}" (ionChange)="onChange(data.id, $event.target.checked)"></ion-checkbox>
+    <ion-chip color="success">
+      <ion-icon name="{{data.categName}}"></ion-icon>
+      <ion-label>{{data.categorie}}</ion-label>
+    </ion-chip>
+    <ion-chip color="{{data.colCla}}">
+      <ion-label>{{data.classe}}</ion-label>
+    </ion-chip>
+    <ion-chip color="danger" *ngIf="data.important">
+      <ion-label>Important</ion-label>
+    </ion-chip>
   </ion-card>
 </ion-content>

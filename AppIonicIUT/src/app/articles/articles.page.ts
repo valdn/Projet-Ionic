@@ -24,7 +24,7 @@ export class ArticlesPage implements OnInit {
   }
 
   async getInitValue(){
-    this.articlestot = await this.apiService.getArticles()
+    this.articlestot = await this.apiService.getChipDesign(await this.apiService.getArticles())
     this.articles = this.articlestot
     this.nom = await this.apiService.getNom()
     this.stored = await this.storage.get('fav_' + this.nom)
@@ -61,7 +61,6 @@ export class ArticlesPage implements OnInit {
   }
 
   async filterArchives(recherche){
-    console.log(recherche)
     if (recherche==""){
        this.getInitValue()
     } else {

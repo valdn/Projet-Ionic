@@ -20,7 +20,7 @@ export class GaleriesPage implements OnInit {
   }
 
   async getInitValue(){
-    this.galeries = await this.apiService.getGaleries()
+    this.galeries = await this.apiService.getChipDesign(await this.apiService.getGaleries())
   }
 
   doRefresh(event) {
