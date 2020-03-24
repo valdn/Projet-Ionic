@@ -9,10 +9,14 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list *ngFor="let data of dates" no-lines>
-    <ion-item>
+    <div class="container">
+    <div class="leftd">
+      <p>{{data.date}}</p>
+    </div>
+    <div class=centerd>
       <ion-label>{{data.titre}}</ion-label>
-      <ion-label>{{data.date}}</ion-label>
-      <ion-label>{{data.texte}}</ion-label>
-    </ion-item>
+      <p>{{data.texte}}</p>
+    </div>
+    </div>
   </ion-list>
 </ion-content>
