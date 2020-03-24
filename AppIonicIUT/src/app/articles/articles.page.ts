@@ -23,6 +23,13 @@ export class ArticlesPage implements OnInit {
     }
   }
 
+  async refresh(event){
+    setTimeout(() => {
+      this.getInitValue();
+      event.target.complete();
+    }, 2000);
+  }
+
   async getInitValue(){
     this.articlestot = await this.apiService.getArticles()
     this.articles = this.articlestot
