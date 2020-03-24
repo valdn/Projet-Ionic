@@ -5,24 +5,83 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
+  <ion-slides style="height: 87%;" pager="true" [options]="slideOpts">
     <ion-slide>
-      <h1>Bienvenue</h1>
+      <ion-row>
+        <h1>Bienvenue !</h1>
+        <br>
+        <img src="../../assets/welcome.jpg" alt="WELCOME">
+        <p>Cette application permettras à vous, parents d'élèves, de vous maintenir informés sur notre école. Voici ce que vous pourrez retrouver :</p>
+        <br>
+      </ion-row>
     </ion-slide>
     <ion-slide>
-      <h1>Articles</h1>
+      <ion-row>
+      <h1>Les onglets</h1>
+      <br>
+      <img src="../../assets/bar.jpeg" alt="BAR">
+      <p>Pour naviguer dans l'application, il vous suffit de cliquer sur les onglets situés au bas de votre écran.</p>
+      <br>
+    </ion-row>
     </ion-slide>
     <ion-slide>
-      <h1>Galeries</h1>
+      <ion-row>
+      <h1>Nos articles</h1>
+      <br>
+      <img src="../../assets/articles.png" alt="ARTICLES">
+      <p>Nous publierons très régulièrement des informations relatives à l'école et aux activités de vos enfants. </p>
+      <br>
+    </ion-row>
     </ion-slide>
     <ion-slide>
-      <h1>Dates Importantes</h1>
+      <ion-row>
+      <h1>Recherches</h1>
+      <br>
+      <img src="../../assets/search.png" alt="SEARCH">
+      <p>Aussi, retrouvez facilement une information grâce notre barre de recherche. </p>
+      <br>
+    </ion-row>
     </ion-slide>
     <ion-slide>
-      <h1>Informations</h1>
+      <ion-row>
+      <h1>Les favoris</h1>
+      <br>
+      <p>Vous aurez l'occasion de mettre en favoris vos articles préférés, et ainsi, retrouver les informations qui vous concerne !</p>
+      <div style="margin-left: auto; margin-right: auto;">
+        <img src="../../assets/checkbox.png" alt="CHECKBOX">
+        <span>Ceci est le bouton favoris</span>
+      </div>
+      <br>
+    </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+      <h1>La gallerie</h1>
+      <img src="../../assets/gallery.png" alt="GALLERY">
+      <p >Beaucoup d'enseignants prennent soins d'immortaliser certains évènements comme les différentes sorties scolaires que nous organisons chaque années. C'est pourquoi, nous partagerons aussi beaucoup de photos sur notre gallerie. </p>
+        <br>
+    </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+      <h1>Les Dates Importantes</h1>
+      <img src="../../assets/dates.png" alt="dates">
+      <p>Désormais, ne ratez plus les moments clés de notre école comme nos kermesses ou bien nos fêtes de fin d'années. Retrouvez les dates de nos différents évènements sur l'onglet "dates".</p>
+        <br>
+    </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row>
+      <h1>Et voilà !</h1>
+      <img src="../../assets/petitPrince.jpg" alt="ENFANT">
+      <p >Si vous souhaitez contacter notre école, n'hésitez pas à le faire aux coordonnées indiqué sur l'onglet d'informations.</p>
+        <br>
+    </ion-row>
     </ion-slide>
   </ion-slides>
   <ion-footer>
-    <ion-button round (click)="goToApp()">Compris</ion-button>
+    <div style="text-align: center;">
+      <ion-button round (click)="goToApp()">Compris</ion-button>
+    </div>
   </ion-footer>  
 </ion-content>
