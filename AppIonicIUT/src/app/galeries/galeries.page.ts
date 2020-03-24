@@ -23,6 +23,14 @@ export class GaleriesPage implements OnInit {
     this.galeries = await this.apiService.getGaleries()
   }
 
+  doRefresh(event) {
+    this.getInitValue()
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   ngOnInit() {
   }
 

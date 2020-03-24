@@ -23,6 +23,14 @@ export class DatesPage implements OnInit {
     this.dates = await this.apiService.getDates()
   }
 
+  doRefresh(event) {
+    this.getInitValue()
+
+    setTimeout(() => {
+      event.target.complete();
+    }, 2000);
+  }
+
   ngOnInit() {
   }
 

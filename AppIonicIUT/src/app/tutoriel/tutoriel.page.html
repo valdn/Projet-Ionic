@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tutoriel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <h1>Bienvenue</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Articles</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Galeries</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Dates Importantes</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Informations</h1>
+    </ion-slide>
+  </ion-slides>
+  <ion-footer>
+    <ion-button round (click)="goToApp()">Compris</ion-button>
+  </ion-footer>  
+</ion-content>
